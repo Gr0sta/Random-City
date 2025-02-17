@@ -1,0 +1,12 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px 30px 50px;
+    text-align: right;
+    background: #333;
+    color: #fff;
+}
+
+.author, .copyright{
+    margin: 0;
+}
