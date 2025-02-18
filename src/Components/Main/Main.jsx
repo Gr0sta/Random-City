@@ -3,6 +3,7 @@ import {loadCityData} from '../../loadCityData'
 import { useEffect, useState } from 'react'
 import BtnRandomCity from './BtnRandomCity/BtnRandomCity'
 import RenderCity from './RenderCity/RenderCity'
+import FilterCity from './FilterCity/FilterCity'
 
 export default function Main (){
     const [cityData, setCityData] = useState([])
@@ -49,7 +50,7 @@ export default function Main (){
             cityData = {cityData}
             randomCity = {randomCity}
         />
-        <p>{countryList}</p>
+        <FilterCity/>
     </main>
     </>
 }
