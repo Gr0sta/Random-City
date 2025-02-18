@@ -1,4 +1,4 @@
-import s from '../Styles/header.module.css'
+import s from './header.module.css'
 
 export default function Header (){
     return<>

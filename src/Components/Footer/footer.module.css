@@ -10,3 +10,8 @@
 .author, .copyright{
     margin: 0;
 }
+
+.author{
+    text-decoration: none;
+    color: #fff;
+}
