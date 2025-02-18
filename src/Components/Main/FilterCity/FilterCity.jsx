@@ -1,10 +1,10 @@
 import s from './filter.City.module.css'
 import FilterCityCountry from './FilterCityCountry/FilterCityCountry'
-import FilterCityPopulation from './FilterCityPopulation/FilterCityPopulaton.jsx'
+import FilterCityPopulation from './FilterCityPopulation/FilterCityPopulaton'
 
-export default function FilterCity (){
+export default function FilterCity ({countryList}){
     return <div className={s.filterCover}>
-        <FilterCityCountry/>
+        <FilterCityCountry countryList = {countryList} />
         <FilterCityPopulation/>
     </div>
 }

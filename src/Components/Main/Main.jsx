@@ -9,6 +9,7 @@ export default function Main (){
     const [cityData, setCityData] = useState([])
     const [randomCity, setRandomCity] = useState()
     const [countryList, setCountryList] = useState([])
+    const [populationList, setPopulationList] = useState([])
 
 
     useEffect(()=>{
@@ -17,6 +18,7 @@ export default function Main (){
             if (data.length>0){
                 setRandomCity(getRandomCity(data))
                 getCountryList(data)
+                getPopulationList(data)
             }
         });
     },[])
@@ -40,6 +42,17 @@ export default function Main (){
         setCountryList([...countrySet])
     }
 
+    function getPopulationList (cityData){
+        const populationArr = []
+
+        cityData.forEach((population, index)=>{
+            if (population[index] !== population[0]){
+                populationArr.push(population[3])
+            }
+        });
+        setPopulationList([...populationArr])
+    }
+
     return<>
     <main className={s.main}>
         <BtnRandomCity
@@ -50,7 +63,10 @@ export default function Main (){
             cityData = {cityData}
             randomCity = {randomCity}
         />
-        <FilterCity/>
+        <FilterCity
+            countryList={countryList}
+        />
+        {console.log(populationList)}
     </main>
     </>
 }
