@@ -11,7 +11,10 @@ export default function Main (){
     const [countryList, setCountryList] = useState([])
     const [populationList, setPopulationList] = useState([])
 
-
+    const [filterCountry, setFilterCountry] = useState('')
+    const [filterPopulation, setFilterPopulation] = useState([5000,35676000])
+    
+    
     useEffect(()=>{
         loadCityData().then((data)=>{
             setCityData(data)
@@ -23,8 +26,16 @@ export default function Main (){
         });
     },[])
 
+
     function getRandomCity(cityData){
-        return cityData[Math.floor(Math.random()*cityData.length)]
+        const filteredCities = cityData.filter(city => 
+            (filterCountry === '' || city[3] === filterCountry) && 
+            city[4] >= filterPopulation[0] && 
+            city[4] <= filterPopulation[1]
+        );
+        if (filteredCities.length === 0) return null;
+        console.log(filteredCities)
+        return filteredCities[Math.floor(Math.random() * filteredCities.length)];
     }
 
     function createRandomCity (cityData){
@@ -52,6 +63,18 @@ export default function Main (){
         setPopulationList([...populationSet])
     }
 
+    function hundleFilterCountry (filterCountry) {
+        setFilterCountry(filterCountry)
+    }
+
+    function hundleFilterPopulation (filterPopulation) {
+        setFilterPopulation(filterPopulation)
+    }
+
+    function getMinMax (arr){
+        return [Math.min(...arr), Math.max(...arr)];
+    }
+
     return<>
     <main className={s.main}>
         <BtnRandomCity
@@ -65,7 +88,9 @@ export default function Main (){
         <FilterCity
             countryList={countryList}
             populationList ={populationList}
+            hundleFilterCountry = {hundleFilterCountry}
+            hundleFilterPopulation = {hundleFilterPopulation}
         />
     </main>
     </>
-}
+}   

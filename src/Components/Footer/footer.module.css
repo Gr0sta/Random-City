@@ -1,6 +1,4 @@
 .footer{
-    display: flex;
-    justify-content: space-between;
     padding: 30px 50px 30px 50px;
     text-align: right;
     background: #333;
@@ -14,4 +12,10 @@
 .author{
     text-decoration: none;
     color: #fff;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
 }

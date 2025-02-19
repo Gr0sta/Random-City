@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import s from './filterCityCountry.module.css'
 
-export default function FilterCityCountry ({countryList}) {
+export default function FilterCityCountry ({countryList, hundleFilterCountry}) {
     const [countryInput, setCountryInput] = useState('')
 
     function countryInputHandler (event){
         setCountryInput(event.target.value)
+        hundleFilterCountry(event.target.value)
     }
 
     return <div className={s}>
@@ -15,6 +16,5 @@ export default function FilterCityCountry ({countryList}) {
                 return <option> {country} </option>
             })}
         </datalist>
-        {countryList.includes(countryInput) ? <p>{countryInput}</p>:<p>"Такой страны нету"</p>}
     </div>
 }
