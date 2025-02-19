@@ -42,15 +42,14 @@ export default function Main (){
         setCountryList([...countrySet])
     }
 
-    function getPopulationList (cityData){
-        const populationArr = []
-
-        cityData.forEach((population, index)=>{
+    function getPopulationList (cityData) {
+        const populationSet = new Set();
+        cityData.forEach((population, index) => {
             if (population[index] !== population[0]){
-                populationArr.push(population[3])
+                populationSet.add(population[4])
             }
         });
-        setPopulationList([...populationArr])
+        setPopulationList([...populationSet])
     }
 
     return<>
@@ -65,8 +64,8 @@ export default function Main (){
         />
         <FilterCity
             countryList={countryList}
+            populationList ={populationList}
         />
-        {console.log(populationList)}
     </main>
     </>
 }
