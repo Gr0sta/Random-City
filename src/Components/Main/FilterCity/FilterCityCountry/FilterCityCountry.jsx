@@ -12,8 +12,8 @@ export default function FilterCityCountry ({countryList, hundleFilterCountry}) {
     return <div className={s}>
         <input type="text" list='data' value={countryInput} onChange={countryInputHandler} />
         <datalist id='data'>
-            {countryList.map(country => {
-                return <option> {country} </option>
+            {countryList.map((country, index) => {
+                return <option key={index}> {country} </option>
             })}
         </datalist>
     </div>

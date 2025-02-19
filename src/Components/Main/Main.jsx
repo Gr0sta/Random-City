@@ -6,7 +6,7 @@ import RenderCity from './RenderCity/RenderCity'
 import FilterCity from './FilterCity/FilterCity'
 
 export default function Main (){
-    const [cityData, setCityData] = useState([])
+    const [cityData, setCityData] = useState([ ])
     const [randomCity, setRandomCity] = useState()
     const [countryList, setCountryList] = useState([])
     const [populationList, setPopulationList] = useState([])
@@ -14,7 +14,7 @@ export default function Main (){
     const [filterCountry, setFilterCountry] = useState('')
     const [filterPopulation, setFilterPopulation] = useState([5000,35676000])
     
-    
+
     useEffect(()=>{
         loadCityData().then((data)=>{
             setCityData(data)
@@ -34,7 +34,6 @@ export default function Main (){
             city[4] <= filterPopulation[1]
         );
         if (filteredCities.length === 0) return null;
-        console.log(filteredCities)
         return filteredCities[Math.floor(Math.random() * filteredCities.length)];
     }
 
@@ -77,20 +76,22 @@ export default function Main (){
 
     return<>
     <main className={s.main}>
-        <BtnRandomCity
-            cityData = {cityData}
-            createRandomCity = {createRandomCity}
-        />
-        <RenderCity
-            cityData = {cityData}
-            randomCity = {randomCity}
-        />
-        <FilterCity
-            countryList={countryList}
-            populationList ={populationList}
-            hundleFilterCountry = {hundleFilterCountry}
-            hundleFilterPopulation = {hundleFilterPopulation}
-        />
+        <div className={s.container}>
+            <BtnRandomCity
+                cityData = {cityData}
+                createRandomCity = {createRandomCity}
+            />
+            <RenderCity
+                cityData = {cityData}
+                randomCity = {randomCity}
+            />
+            <FilterCity
+                countryList={countryList}
+                populationList ={populationList}
+                hundleFilterCountry = {hundleFilterCountry}
+                hundleFilterPopulation = {hundleFilterPopulation}
+            />
+        </div>
     </main>
     </>
 }   
