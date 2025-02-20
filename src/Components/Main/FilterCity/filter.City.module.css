@@ -1,0 +1,14 @@
+.filterCover{
+    width: 100%;
+}
+
+.filterTitle{
+    width: 98%;
+    padding: 10px;
+    margin: 0 0 30px 0;
+    background: #333;
+    color:white;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}

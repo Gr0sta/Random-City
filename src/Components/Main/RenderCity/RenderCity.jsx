@@ -3,18 +3,29 @@ import s from './RenderCity.module.css'
 
 export default function RenderCity ({cityData, randomCity}){
     return <div className={s.container}>
-        {Array.isArray(cityData) && cityData.length > 0 ? (
+        <table className={s.table}>
+            <thead className={s.thead}>
+                <tr className={s.theadTr}>
+                    <td className={s.theadTd}>Город</td>
+                    <td className={s.theadTd}>Страна</td>
+                    <td className={s.theadTd}>Население</td>
+                </tr>
+            </thead>
+            <tbody className={s.tbody}>
+            {Array.isArray(cityData) && cityData.length > 0 ? (
                 randomCity && Array.isArray(randomCity) ? (
-                    <div className={s.cityTextCover}>
-                        <p className={s.city}>{randomCity[0]}</p> 
-                        <p className={s.country}>{randomCity[3]}</p> 
-                        <p className={s.population}>{randomCity[4]}</p> 
-                    </div>
+                    <tr className={s.tbodyTr}>
+                        <td className={s.tbodyTrCity}>{randomCity[0]}</td> 
+                        <td className={s.tbodyTrCountry}>{randomCity[3]}</td> 
+                        <td className={s.tbodyTrPopulation}>{randomCity[4]}</td> 
+                    </tr>
                 ) : (
-                    <p>Нет подходящих городов по фильтрам.</p> 
+                    <p className={s.notFoundFilter}>Нет подходящих городов по фильтрам.</p> 
                 )
             ) : (
-                <p>Загрузка...</p>
+                <p className={s.load}>Загрузка...</p>
             )}
+            </tbody>
+        </table>
     </div>
 }
