@@ -1,0 +1,29 @@
+.filterPopulationCover{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    position: relative;
+}
+
+.TitlePopulation{
+    text-align: center;
+    margin: 0;
+}
+
+.sliderPopulationCover{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.sliderTitleToPopulation{
+    margin-left: 20px;
+}
+
+.sliderTitleFromPopulation{
+    margin-right: 20px;
+}
+
+.sliderPopulation{
+    position: absolute;
+    bottom: -5px;
+}

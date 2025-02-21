@@ -20,10 +20,16 @@ export default function RenderCity ({cityData, randomCity}){
                         <td className={s.tbodyTrPopulation}>{randomCity[4]}</td> 
                     </tr>
                 ) : (
-                    <p className={s.notFoundFilter}>Нет подходящих городов по фильтрам.</p> 
+                    <tr className={s.tbodyTrNotFoundFilter}>
+                        <td className={s.tbodyTdNotFoundFilter} colSpan={3}><p className={s.notFoundFilter}>Нет подходящих городов по фильтрам.</p></td>
+                    </tr> 
                 )
             ) : (
-                <p className={s.load}>Загрузка...</p>
+                <tr className={s.tbodyTrLoad}>
+                    <td className={s.tbodyTdLoad} colSpan={3}>
+                        <p className={s.load}>Загрузка...</p>
+                    </td>
+                </tr>
             )}
             </tbody>
         </table>

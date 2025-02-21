@@ -1,0 +1,27 @@
+.filterCountryCover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;
+}
+
+.filterCountryLabel{
+    font-size: 22px;
+}
+
+.filterCountryInput{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    padding: 5px 20px 5px 20px;
+    margin: 15px;
+    font-family: inherit;
+    color: white;
+    background: #333;
+    font-size: 22px;
+    text-align: center;
+}
+
+.filterCountryInput::placeholder{
+    color:#999;
+}
